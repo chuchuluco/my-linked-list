@@ -69,6 +69,19 @@ class LinkedList
     false
   end
 
+  def find(value)
+    current_node = @head
+    index = 0
+    until current_node.nil?
+      if current_node.value == value
+        return index
+      end
+      current_node = current_node.next_node
+      index += 1
+    end
+    return nil
+  end
+
 end
 
 class Node 
@@ -85,7 +98,12 @@ list.append(26)
 list.append(3555)
 list.append(4)
 
+
 puts list.size
 puts list.at(0)
 list.pop
 puts list.size
+puts list.contains?(26)
+puts list.contains?(38)
+puts list.find(26)
+p list.find(433)
