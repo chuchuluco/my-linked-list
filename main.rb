@@ -34,18 +34,28 @@ class LinkedList
         size += 1
       end
     end
-    puts "Size: #{size} nodes"
+    size
   end
-  
+
   def at(index)
-    return puts @head.value if index == 0
+    return @head.value if index == 0
     place = 1
     next_node = @head.next_node
     until place == index
        next_node = next_node.next_node
       place +=1
     end
-    puts next_node.value
+    return next_node.value
+  end
+
+  def pop 
+    return @head = nil if self.size == 1
+    current_node = @head
+      until current_node.next_node == @tail
+        current_node = current_node.next_node
+      end
+    current_node.next_node = nil
+    @tail = current_node
   end
 
 end
@@ -57,3 +67,14 @@ class Node
     @next_node = next_node
   end
 end
+
+list = LinkedList.new
+list.append(45)
+list.append(26)
+list.append(3555)
+list.append(4)
+
+puts list.size
+puts list.at(0)
+list.pop
+puts list.size
