@@ -82,6 +82,15 @@ class LinkedList
     return nil
   end
 
+  def to_s
+    current_node = @head
+    until current_node.nil?
+      print "( #{current_node.value} ) -> "
+      current_node = current_node.next_node
+    end
+    print 'nil'
+  end
+
 end
 
 class Node 
@@ -107,3 +116,4 @@ puts list.contains?(26)
 puts list.contains?(38)
 puts list.find(26)
 p list.find(433)
+list.to_s
